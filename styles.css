@@ -1,0 +1,11 @@
+#flex-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+.sortType{
+    margin-right: 1em;
+    border: 1px solid black;
+    width: auto;
+    text-align: center;
+    margin-top: 1em ;
+}
