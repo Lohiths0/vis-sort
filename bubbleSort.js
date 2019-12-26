@@ -1,7 +1,7 @@
 var lines = [];
 var n = 0;
 var j = 0;
-var myCanvas;
+var bSortCanvas;
 var bubbleButton;
 var bubbleLoop;
 
