@@ -11,29 +11,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>  
         
+        <script src="call.js"></script>
         <script src="selectionSort.js"></script>
         <script src="bubbleSort.js"></script>
+        
         
     </head>
     <body>
         
-        <h2>Sorting Algorithms</h2>
+        <div id="sCanvas"></div>
+        <div id="bCanvas"></div>
         
-        <div id="flex-container">
-            <div class="bubble sortType">
-                <div class="sort-title">Bubble Sort</div>
-                <div id = "bSort-canvas"></div>
-            </div>
-            
-            
-            <div class="selection sortType">
-                <div class="sort-title">Selection Sort</div>
-                <div id = "sSort-canvas"></div>
-            </div>
         
-        </div>
+       <button id="bubble">Bubble Sort</button>
+       <button id="selection">Selection Sort</button>
         
        
     </body>
