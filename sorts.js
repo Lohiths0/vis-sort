@@ -1,6 +1,6 @@
 var bubble = function( p ) { // p could be any variable name
     
-    var lines = [];
+    var bLines = [];
     var n = 0;
     var j = 0;
     var bSortCanvas;
@@ -10,12 +10,21 @@ var bubble = function( p ) { // p could be any variable name
         bSortCanvas = p.createCanvas(1000, 800);
         bSortCanvas.parent("bCanvas");
         for (var i = 0; i <p.width; i++){
-            lines[i] = p.random(0, p.height);
+            bLines[i] = p.random(0, p.height);
         }
+
         bubbleLoop = false;
         bubbleButton = document.getElementById("bubble");
         bubbleButton.onclick = function proceedLoop(){
-            bubbleLoop = true
+            if (bubbleLoop==false){
+                bubbleLoop = true;
+            }else{
+                bubbleLoop = false;
+                for (var i = 0; i <p.width; i++){
+                    bLines[i] = p.random(0, p.height);
+                }
+            }
+            
         }
     
     };
@@ -23,24 +32,24 @@ var bubble = function( p ) { // p could be any variable name
     p.draw = function() {
         p.background(0);
         if (bubbleLoop){
-            for (var i = 0; i<lines.length; i++){   
+            for (var i = 0; i<bLines.length; i++){   
                 if(i%2==0){
                     p.stroke(155);
                     p.strokeWeight(5);
-                    p.line(i, p.height, i, p.height-lines[i]);
+                    p.line(i, p.height, i, p.height-bLines[i]);
                 }else{
                     p.stroke(0);
                     p.strokeWeight(5);
-                    p.line(i, p.height, i, p.height-lines[i]);
+                    p.line(i, p.height, i, p.height-bLines[i]);
         
                 }
             }
-            if (n<lines.length){
-                for (j = 0; j< lines.length; j++){
-                    if (lines[j]>lines[j+1]){
-                        var temp = lines[j];
-                        lines[j] = lines[j+1];
-                        lines[j+1] = temp;
+            if (n<bLines.length){
+                for (j = 0; j< bLines.length; j++){
+                    if (bLines[j]>bLines[j+1]){
+                        var temp = bLines[j];
+                        bLines[j] = bLines[j+1];
+                        bLines[j+1] = temp;
                     }
                 }
                 n+=1;
@@ -55,7 +64,7 @@ var bubblep5 = new p5(bubble, 'bCanvas');
   
   // Sketch Two
 var selection = function( p ) { 
-    var lines = [];
+    var sLines = [];
     var sSortCanvas;
     var n;
     var j;
@@ -66,7 +75,7 @@ var selection = function( p ) {
         sSortCanvas = p.createCanvas(1000, 800);
         sSortCanvas.parent("sCanvas");
         for (var i = 0; i<p.width; i++){
-            lines[i] = p.random(0, p.height);
+            sLines[i] = p.random(0, p.height);
         }
         n = 0;
         j = 0;
@@ -75,7 +84,15 @@ var selection = function( p ) {
     
         selectionButton = document.getElementById("selection");
         selectionButton.onclick = function proceedLoop(){
-            selectionLoop = true
+            if (selectionLoop == false){
+                selectionLoop = true
+            }else{
+                selectionLoop = false;
+                for (var i = 0; i<p.width; i++){
+                    sLines[i] = p.random(0, p.height);
+                }
+            }
+            
         }
     };
   
@@ -83,31 +100,31 @@ var selection = function( p ) {
         p.background(0);
         if (selectionLoop){
             
-            for (var i = 0; i<lines.length; i++){
+            for (var i = 0; i<sLines.length; i++){
                 if (i%2==0){
                     p.stroke(155);
                     p.strokeWeight(5);
-                    p.line(i, p.height, i, p.height-lines[i]);
+                    p.line(i, p.height, i, p.height-sLines[i]);
                 }else{
                     p.stroke(0);
                     p.strokeWeight(5);
-                    p.line(i, p.height, i, p.height-lines[i]);
+                    p.line(i, p.height, i, p.height-sLines[i]);
                 }
             }
         
         
-            if (n<lines.length){
+            if (n<sLines.length){
                 var minEleIndex = n; 
                 
-                for (var j = n; j < lines.length; j++){
-                    if (lines[minEleIndex]>lines[j]){
+                for (var j = n; j < sLines.length; j++){
+                    if (sLines[minEleIndex]>sLines[j]){
                         minEleIndex = j;
                     }
                 }
         
-                var temp = lines[n];
-                lines[n] = lines[minEleIndex];
-                lines[minEleIndex] = temp;
+                var temp = sLines[n];
+                sLines[n] = sLines[minEleIndex];
+                sLines[minEleIndex] = temp;
                 n+=1;
             }else{
                 p.noLoop();
@@ -138,7 +155,17 @@ var selection = function( p ) {
         insertLoop = false;
         insertButton = document.getElementById("insertion");
         insertButton.onclick = function proceedLoop(){
-            insertLoop = true
+            if (insertLoop == false){
+                insertLoop = true
+            }else{
+                insertLoop = false;
+                for (var i = 0; i<p.width; i++){
+                    iLines[i] = p.random(0, p.height);
+                }
+                n = 0;
+                j = 0;
+            }
+            
         }
 
     }
@@ -180,3 +207,4 @@ var selection = function( p ) {
   }
 
   var insertionp5 = new p5(insertion, "iCanvas");
+
