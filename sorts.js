@@ -30,16 +30,16 @@ var bubble = function( p ) { // p could be any variable name
     };
   
     p.draw = function() {
-        p.background(0);
+        p.background(0, 73, 90);
         if (bubbleLoop){
             for (var i = 0; i<bLines.length; i++){   
                 if(i%2==0){
-                    p.stroke(155);
-                    p.strokeWeight(5);
+                    p.stroke(255);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-bLines[i]);
                 }else{
                     p.stroke(0);
-                    p.strokeWeight(5);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-bLines[i]);
         
                 }
@@ -91,24 +91,28 @@ var selection = function( p ) {
                 for (var i = 0; i<p.width; i++){
                     sLines[i] = p.random(0, p.height);
                 }
+                n = 0;
+                j = 0;
+                minEleIndex = 0;
             }
             
         }
     };
   
     p.draw = function() {
-        p.background(0);
+        p.background(0, 73, 90);
         if (selectionLoop){
             
             for (var i = 0; i<sLines.length; i++){
-                if (i%2==0){
-                    p.stroke(155);
-                    p.strokeWeight(5);
+                if(i%2==0){
+                    p.stroke(255);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-sLines[i]);
                 }else{
                     p.stroke(0);
-                    p.strokeWeight(5);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-sLines[i]);
+        
                 }
             }
         
@@ -171,17 +175,18 @@ var selection = function( p ) {
     }
 
     p.draw = function(){
-        p.background(0);
+        p.background(0, 73, 90);
         if (insertLoop){
             for (var i = 0; i<iLines.length; i++){
-                if (i%2==0){
-                    p.stroke(155);
-                    p.strokeWeight(5);
+                if(i%2==0){
+                    p.stroke(255);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-iLines[i]);
                 }else{
-                    p.stroke(55);
-                    p.strokeWeight(5);
+                    p.stroke(0);
+                    p.strokeWeight(1);
                     p.line(i, p.height, i, p.height-iLines[i]);
+        
                 }
             }
             
