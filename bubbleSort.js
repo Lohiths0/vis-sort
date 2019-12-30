@@ -17,7 +17,6 @@ function setup(){
         bubbleLoop = true
     }
 
-    console.log("Bubble running");
     
     
     
